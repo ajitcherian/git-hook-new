@@ -1,0 +1,40 @@
+#!/usr/bin/bash
+
+#below input_file is file ".git/COMMIT_EDITMSG" were commits are stored
+INPUT_FILE=$***REMOVED***
+
+#it will copy the commit string from ".git/COMMIT_EDITMSG"
+START_LINE=`head -n***REMOVED*** $INPUT_FILE`
+
+#initial index value
+sum=0
+
+IFS='- ' read -r -a array_value <<< "$START_LINE"
+
+for i in ${!array_value[@]}
+do
+    sum=`expr $sum + $i`
+done
+
+
+if [ ${sum} == 3 ]; then
+
+USER_NAME=`git config user.name`
+TICKET_DIGIT=`awk -F '[0-9]' '{print NF-***REMOVED***}' <<< "${array_value[***REMOVED***]}"`
+
+   if [ ${array_value[0]} != ${USER_NAME} ];  then
+        echo "please enter your gitlab username, you may configure/add user name using command 'git config --global user.name "username""
+        exit ***REMOVED***
+   fi
+
+   if [ "${TICKET_DIGIT}" != "4" ];  then
+        echo "INVALID TICKET ID"
+        exit ***REMOVED***
+   else 
+      echo "verify ticket ID ${array_value[***REMOVED***]}"
+   fi
+
+else
+   echo "pattern must be <developer_username>-<ticketID>-<description> without space eg: john3-4356-Added_Crashanalytics"
+   exit ***REMOVED***
+fi
