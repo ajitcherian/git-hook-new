@@ -1,0 +1,14 @@
+variable1=value
+genomics.ui.service.authusername=user
+genomics.ui.service.authpassword=et
+ehr.super.user.userid=superiace
+ehr.super.user.password=0t
+api.portal.oauth2.clientId=b6-395
+api.portal.oauth2.clientSecret=a_nqeJA
+api.portal.username=ajit@email.com
+api.portal.password=Tes
+spring.datasource.main.username=abc
+spring.datasource.main.password=abc215
+spring.datasource.shadow.username=abc
+spring.datasource.shadow.password=abc215
+variable2=value
