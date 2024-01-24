@@ -12,3 +12,4 @@ spring.datasource.main.password=abc215
 spring.datasource.shadow.username=abc
 spring.datasource.shadow.password=abc215
 variable2=value
+variable3=value
